@@ -1,8 +1,8 @@
-package com.ms.email.consumers;
+package com.ms.email.adapters.inbound.consumers;
 
-import com.ms.email.dtos.EmailDto;
-import com.ms.email.models.EmailModel;
-import com.ms.email.services.EmailService;
+import com.ms.email.application.ports.EmailServicePort;
+import com.ms.email.adapters.dtos.EmailDto;
+import com.ms.email.application.domain.Email;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,13 +13,13 @@ import org.springframework.stereotype.Component;
 public class EmailConsumer {
 
     @Autowired
-    EmailService emailService;
+    EmailServicePort emailServicePort;
 
-    @RabbitListener(queues = "${spring.rabbitmq.queue}")
+    @RabbitListener(queues = "${mq-queue}")
     public void listen(@Payload EmailDto emailDto) {
-        EmailModel emailModel = new EmailModel();
+        Email emailModel = new Email();
         BeanUtils.copyProperties(emailDto, emailModel);
-        emailService.sendEmail(emailModel);
+        emailServicePort.sendEmail(emailModel);
         System.out.println("Email status: " + emailModel.getStatusEmail().toString());
     }
 
