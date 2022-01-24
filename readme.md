@@ -17,7 +17,7 @@
 ### Steps
  - [x] Create microservice
  - [x] Assync with RabbitMQ
- - [ ] Refactor architecture (Clean/Hexagonal)
+ - [x] Refactor architecture (Clean/Hexagonal)
 
 
 ### References
