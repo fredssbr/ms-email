@@ -15,11 +15,13 @@
 ```
 
 ### Steps
- - [X] Create microservice
+ - [x] Create microservice
+ - [x] Assync with RabbitMQ
  - [ ] Refactor architecture (Clean/Hexagonal)
 
 
 ### References
-
-* [CRIANDO UM MICROSERVICE DE ENVIO DE EMAIL](https://www.youtube.com/watch?v=ZBleZzJf6ro)
 * [Creating a simple Gmail App password for sending e-mails](https://support.google.com/accounts/answer/185833)
+* [RabbitMQ as a Service](https://www.cloudamqp.com/)
+* Guide
+  * [Microservices with Java Spring Boot](https://www.youtube.com/playlist?list=PL8iIphQOyG-Dp037UnFG0x8aduelvZZWE)
